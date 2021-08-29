@@ -14,6 +14,7 @@ const cors = require('cors');
 
 //? Routes
 const templates = require('./app/view/view.templates');
+const administradores = require('./app/view/view.administradores');
 
 //? Models DB
 const teclalopersDB = require('./db/db.models.teclalopers');
@@ -85,3 +86,4 @@ const startServer = async() => {
 //! Call startServer
 startServer();
 templates(app);
+administradores(app);
