@@ -3,6 +3,9 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('./db.connection');
 
+//? administradores model
+const administradores = require('./db.models.administradores');
+
 //? teclalopers model
 const teclalopers = sequelize.define('teclalopers', {
 
@@ -30,7 +33,14 @@ const teclalopers = sequelize.define('teclalopers', {
 
     correo: {type: DataTypes.STRING, allowNull: false},
 
-    contrasena: {type: DataTypes.STRING, allowNull: false}
+    contrasena: {type: DataTypes.STRING, allowNull: false},
+
+    //* administrador
+    administrador_id: {
+        type: DataTypes.INTEGER,
+        references: {model: administradores, key: 'id'},
+        allowNull: false,
+    }
 
 }, {
     //* CreatedAt | UpdatedAt
