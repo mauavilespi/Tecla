@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.logoMain {
+    width: 450px;
+    height: 450px;
+    justify-content: center;
+    margin-bottom: -150px;
+}
+
+.slogan {
+    color: #1c6489;
+}
+
+.logoGit {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
