@@ -1,6 +1,5 @@
 //! Import the necessary modules
 //? Model Administradores
-const modelAdministrador = require('../model/model.administradores');
 const modelAdministradores = require('../model/model.administradores')
 
 class controllerAdministrador {
@@ -23,7 +22,7 @@ class controllerAdministrador {
     static administradorExists = async(data) => {
         let tmpAdmin = data;
         try {
-            let result = await modelAdministrador.verifyAdministrador(tmpAdmin);
+            let result = await modelAdministradores.verifyAdministrador(tmpAdmin);
             return result;
         } catch (error) {
             console.log(error);
@@ -34,7 +33,7 @@ class controllerAdministrador {
 
     static administradorGet = async() => {
         try {
-            let result = await modelAdministrador.getAdministrador();
+            let result = await modelAdministradores.getAdministrador();
             return result;
         } catch (error) {
             console.log(error);
