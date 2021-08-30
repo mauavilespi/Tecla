@@ -120,6 +120,27 @@ class modelTeclaloper {
             console.log(error);
             throw new Error ('No se ha podido listar a los usuarios');
         }
+    };
+
+    static loginTeclaloper = async(data) => {
+        try {
+            let result = await teclalopers.findOne({
+                where: {
+                    correo: data[0]
+                },
+                attributes: ['contrasena']
+            });
+            if(!result) return 0
+
+            //* Verify password
+            const passOK = await bcrypt.compare(data[1], result.dataValues.contrasena)
+            if(passOK) return 2
+            else return 0
+            
+        } catch (error) {
+            console.log(error);
+            throw new Error ('No se ha podido encontrar al usuario');
+        }
     }
 };
 

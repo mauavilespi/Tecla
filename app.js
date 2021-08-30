@@ -14,6 +14,7 @@ const cors = require('cors');
 
 //? Routes
 const templates = require('./app/view/view.templates');
+const login = require('./app/view/view.login');
 const administradores = require('./app/view/view.administradores');
 const teclalopers = require('./app/view/view.teclalopers');
 const descripciones = require('./app/view/view.descripciones');
@@ -89,6 +90,7 @@ const startServer = async() => {
 //! Call startServer
 startServer();
 templates(app);
+login(app);
 administradores(app);
 teclalopers(app);
 descripciones(app);
