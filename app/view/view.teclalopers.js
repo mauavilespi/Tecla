@@ -1,5 +1,5 @@
 //! Import the necessary modules
-//? Controller administradores
+//? Controller teclalopers
 const controllerTeclalopers = require('../controller/controller.teclalopers');
 
 module.exports = async(app) => {

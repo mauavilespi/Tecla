@@ -2,6 +2,7 @@ CREATE DATABASE teclasocial
 GO
 
 USE teclasocial
+GO
 
 SELECT * FROM teclalopers
 
