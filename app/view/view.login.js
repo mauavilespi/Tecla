@@ -11,6 +11,7 @@ module.exports = async(app) => {
         try {
             let result = await controllerLogin.typeUser(req.body);
             let token = await controllerLogin.generateToken(req.body, result)
+            if(token === 0) return res.status(401).send({error: "Usted no es usuario de esta red"})
             res.status(200).send({"token": token, "type": result});
             
         } catch (error) {
