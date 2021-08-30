@@ -16,6 +16,7 @@ const cors = require('cors');
 const templates = require('./app/view/view.templates');
 const administradores = require('./app/view/view.administradores');
 const teclalopers = require('./app/view/view.teclalopers');
+const descripciones = require('./app/view/view.descripciones');
 
 //? Models DB
 const teclalopersDB = require('./db/db.models.teclalopers');
@@ -89,3 +90,4 @@ startServer();
 templates(app);
 administradores(app);
 teclalopers(app);
+descripciones(app);
