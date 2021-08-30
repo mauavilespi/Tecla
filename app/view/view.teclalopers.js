@@ -4,7 +4,7 @@ const controllerTeclalopers = require('../controller/controller.teclalopers');
 
 module.exports = async(app) => {
     //? Create new Teclaloper
-    app.post('/teclaloper/create', async(req, res) => {
+    app.post('/teclaloper/create', middlewareUsers.verifyAdmin, async(req, res) => {
         let {nombre, apellido1, pais, ciudad, active, fechaNacimiento, correo, contrasena, administrador_id} = req.body;
         if(!nombre || !apellido1 || !pais || !ciudad || !active || !fechaNacimiento || !correo || !contrasena || !administrador_id) return res.status(400).send({error: 'Datos incompletos'})
 
@@ -43,7 +43,7 @@ module.exports = async(app) => {
     });
 
     //? Delete Teclaloper
-    app.delete('/teclaloper/delete/:id', async(req, res) => {
+    app.delete('/teclaloper/delete/:id', middlewareUsers.verifyAdmin, async(req, res) => {
         let idTeclaloper = req.params.id;
         try {
             let verifyID = await controllerTeclalopers.teclaloperExistsID(idTeclaloper);

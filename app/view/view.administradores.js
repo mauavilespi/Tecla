@@ -1,10 +1,12 @@
 //! Import the necessary modules
 //? Controller administradores
 const controllerAdministradores = require('../controller/controller.administradores');
+//? Middleware Users
+const middlewareUsers = require('../../middleware/middleware.users');
 
 module.exports = async(app) => {
     //? Create new administrador (Doc)
-    app.post('/administrador/create', async(req, res) => {
+    app.post('/administrador/create', middlewareUsers.verifyAdmin, async(req, res) => {
         let {correo, contrasena} = req.body;
         if(!correo || !contrasena) return res.status(400).send({error: 'Datos incompletos'})
 
@@ -23,7 +25,7 @@ module.exports = async(app) => {
     });
 
     //? Get all administrador (Doc)
-    app.get('/administrador', async(req, res) => {
+    app.get('/administrador', middlewareUsers.verifyAdmin, async(req, res) => {
         try {
             let result = await controllerAdministradores.administradorGet();
             if(result) return res.status(200).send(result)

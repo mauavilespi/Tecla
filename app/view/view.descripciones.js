@@ -7,7 +7,7 @@ const controllerTeclalopers = require('../controller/controller.teclalopers');
 module.exports = async(app) => {
 
     //? Create descripcion
-    app.post('/descripcion/create', async(req,res) => {
+    app.post('/descripcion/create', middlewareUsers.verifyAdmin, async(req,res) => {
         let {teclaloper_id} = req.body;
         if(!teclaloper_id) return res.status(400).send({error: 'Datos incompletos'});
 
@@ -31,7 +31,7 @@ module.exports = async(app) => {
     });
 
     //? Update description
-    app.put('/descripcion/update/:id', async(req, res) => {
+    app.put('/descripcion/update/:id', middlewareUsers.verifyAdmin, async(req, res) => {
         let idUser = req.params.id;
         try {
             //* Verificar si existe una descripción para el usuario

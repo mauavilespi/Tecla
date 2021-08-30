@@ -17,6 +17,16 @@ class modelLogin {
         return 0
         //return jwt.sign({data}, ''+process.env.SECRET_KEY)
     };
+
+    static tokenAdmin= async(token) => {
+        try {
+            const result = jwt.verify(token, process.env.SECRET_KEY_Adm);
+            return result;
+        } catch (error) {
+            console.log(error);
+            throw new Error ('¡Usted no pertenece a los administradores!')
+        }
+    }
 };
 
 module.exports = modelLogin;
