@@ -3,7 +3,7 @@
 const controllerAdministradores = require('../controller/controller.administradores');
 
 module.exports = async(app) => {
-    //? Create new administrador
+    //? Create new administrador (Doc)
     app.post('/administrador/create', async(req, res) => {
         let {correo, contrasena} = req.body;
         if(!correo || !contrasena) return res.status(400).send({error: 'Datos incompletos'})
@@ -22,7 +22,7 @@ module.exports = async(app) => {
         
     });
 
-    //? Get all administrador
+    //? Get all administrador (Doc)
     app.get('/administrador', async(req, res) => {
         try {
             let result = await controllerAdministradores.administradorGet();
