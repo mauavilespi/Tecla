@@ -17,7 +17,7 @@ const templates = require('./app/view/view.templates');
 const login = require('./app/view/view.login');
 const administradores = require('./app/view/view.administradores');
 const teclalopers = require('./app/view/view.teclalopers');
-//const empresas = require('./app/view/view.empresas');
+const empresas = require('./app/view/view.empresas');
 const descripciones = require('./app/view/view.descripciones');
 
 //? Models DB
@@ -94,5 +94,5 @@ templates(app);
 login(app);
 administradores(app);
 teclalopers(app);
-//empresas(app);
+empresas(app);
 descripciones(app);
