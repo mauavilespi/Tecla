@@ -37,7 +37,7 @@ class modelAdministrador {
         }
     };
 
-    static getAdministrador = async(data) => {
+    static getAdministrador = async() => {
         try {
             let result = await administradores.findAll({
                 attributes: ['id','correo','createdAt','updatedAt']

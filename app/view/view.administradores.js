@@ -6,7 +6,7 @@ module.exports = async(app) => {
     //? Create new administrador
     app.post('/administrador/create', async(req, res) => {
         let {correo, contrasena} = req.body;
-        if(!correo || !contrasena) res.status(400).send({error: 'Datos incompletos'})
+        if(!correo || !contrasena) return res.status(400).send({error: 'Datos incompletos'})
 
         try {
             let verify = await controllerAdministradores.administradorExists(correo);
