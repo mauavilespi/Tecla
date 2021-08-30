@@ -1,6 +1,8 @@
 //! Import the necessary modules
 //? Controller teclalopers
 const controllerTeclalopers = require('../controller/controller.teclalopers');
+//? Middleware Users
+const middlewareUsers = require('../../middleware/middleware.users');
 
 module.exports = async(app) => {
     //? Create new Teclaloper
@@ -69,6 +71,7 @@ module.exports = async(app) => {
             console.log(error);
             res.status(400).send({error: 'Ha ocurrido un error inesperado'});
         }
+        
     });
 
-}
+};

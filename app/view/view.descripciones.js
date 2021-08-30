@@ -3,6 +3,8 @@
 const controllerDescripciones = require ('../controller/controller.descripciones');
 //? Controller teclalopers
 const controllerTeclalopers = require('../controller/controller.teclalopers');
+//? Middleware Users
+const middlewareUsers = require('../../middleware/middleware.users');
 
 module.exports = async(app) => {
 
