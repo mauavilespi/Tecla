@@ -106,7 +106,7 @@ class modelTeclaloper {
         }
     };
 
-    static getTeclaloper = async(data) => {
+    static getTeclaloper = async() => {
         try {
             let result = await teclalopers.findAll({
                 where: {

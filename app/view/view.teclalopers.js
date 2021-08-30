@@ -47,7 +47,7 @@ module.exports = async(app) => {
         let idTeclaloper = req.params.id;
         try {
             let verifyID = await controllerTeclalopers.teclaloperExistsID(idTeclaloper);
-            if(!verifyID) if(!verifyID) return res.status(400).send({error: 'No se puede eliminar un usuario que no existe'});
+            if(!verifyID) return res.status(400).send({error: 'No se puede eliminar un usuario que no existe'});
 
             let result = await controllerTeclalopers.teclaloperDelete(idTeclaloper);
             res.status(200).send({status: result});
@@ -69,9 +69,6 @@ module.exports = async(app) => {
             console.log(error);
             res.status(400).send({error: 'Ha ocurrido un error inesperado'});
         }
-    })
-
-
-
+    });
 
 }
