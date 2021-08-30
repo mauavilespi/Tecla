@@ -38,7 +38,7 @@ const publicacionesDB = require('./db/db.models.publicaciones');
 const administradoresDB = require('./db/db.models.administradores');
 
 //? Middlewares
-
+const middlewareGlobal = require('./middleware/middleware.global');
 
 //! Global configs for use of ejs
 app.use(express.static(__dirname + '/public'));
@@ -48,6 +48,7 @@ app.set('views', __dirname + '/views');
 //! Global middlewares
 app.use(express.json());
 app.use(cors());
+app.use(middlewareGlobal.limiter);
 
 //! Server start
 const startServer = async() => {
